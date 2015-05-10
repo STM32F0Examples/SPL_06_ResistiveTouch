@@ -13,9 +13,13 @@ int main(void)
 {
 	setToMaxSpeed();
 	UART2_init(9600);
-	serial_printf(UART2_serial,"\nSystem ready\n");
+	serial_printf(UART2_serial,"\nUSART2 ready\n");
 	rTouch_init();
+	serial_printf(UART2_serial,"Touch Screen ready\n");
 	while(1){
+		serial_printf(UART2_serial,"Waiting for touch... ");
+		rTouch_waitToPress(-1);
+		serial_printf(UART2_serial,"touch detected\n");
 		serial_printf(UART2_serial,"$ ");
 		serial_gets(UART2_serial,inputBuffer,IN_BUFFER_SIZE);
 		serial_printf(UART2_serial,"%s\n",inputBuffer);
