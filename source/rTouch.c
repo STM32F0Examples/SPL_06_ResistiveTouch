@@ -45,15 +45,30 @@ int rTouch_waitToPress(int timeout){
 }
 
 int rTouch_waitToRelease(int timeout){
-	return 0;
+	if(timeout < 0){
+		while(detectAndRead());//wait forever
+		return 1;
+	}
+	else if(timeout == 0){
+		return !detectAndRead();
+	}
+	else{
+		for(int i = 0; i<timeout ; i++){
+			if(!detectAndRead()){
+				return 1;
+			}
+			delay_ms(timeout);
+		}
+		return 0;
+	}
 }
 
 int rTouch_readX(void){
-	return 0;
+	return rawX;
 }
 
 int rTouch_readY(void){
-	return 0;
+	return rawY;
 }
 
 
