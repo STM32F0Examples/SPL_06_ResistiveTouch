@@ -19,13 +19,10 @@ int main(void)
 	while(1){
 		serial_printf(UART2_serial,"Waiting for touch... ");
 		rTouch_waitToPress(-1);
-		serial_printf(UART2_serial,"touch detected X=%d Y=%d\n",rTouch_readX(),rTouch_readY());
-		serial_printf(UART2_serial,"Waiting for release... ");
-		rTouch_waitToRelease(-1);
+		//serial_printf(UART2_serial,"touch detected X=%d Y=%d\n",rTouch_readX(),rTouch_readY());
+		//serial_printf(UART2_serial,"Waiting for release... ");
+		//rTouch_waitToRelease(-1);
 		serial_printf(UART2_serial,"release detected X=%d Y=%d\n",rTouch_readX(),rTouch_readY());
-		//serial_printf(UART2_serial,"$ ");
-		//serial_gets(UART2_serial,inputBuffer,IN_BUFFER_SIZE);
-		//serial_printf(UART2_serial,"%s\n",inputBuffer);
 	}
 }
 
