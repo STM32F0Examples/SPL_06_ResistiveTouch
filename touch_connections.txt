@@ -1,0 +1,7 @@
+RX+		A6						
+RX-		A7	B1
+RY+		A4	 
+RY-		A5 	B0	
+
+B0 	AN8
+B1	AN9
